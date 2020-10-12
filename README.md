@@ -7,8 +7,8 @@ My main codes are under
 \src\main\java\com\frame
 \src\main\java\com\lib
 These will help to recognize my coding skills
-----
-to run this project
+
+To run this project
 1. Install Eclipse IDE
 2. Install Maven in Eclipse 
 3. Install TestNG in Eclipse
