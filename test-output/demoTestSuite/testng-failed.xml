@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [demoTestSuite]">
+  <test thread-count="5" name="Register account successfull with default Flow(failed)">
+    <parameter name="dataFile" value="testCases.xlsx"/>
+    <parameter name="dataSheet" value="testData"/>
+    <classes>
+      <class name="com.scripts.RegisterScenarios">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="beforeMethodClass"/>
+          <include name="close"/>
+          <include name="basicSuccessFlow" invocation-numbers="0"/>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.scripts.RegisterScenarios -->
+    </classes>
+  </test> <!-- Register account successfull with default Flow(failed) -->
+</suite> <!-- Failed suite [demoTestSuite] -->

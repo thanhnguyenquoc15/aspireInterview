@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="demoTestSuite">
+
+<test name="Register account successfull with default Flow">
+ 	 <parameter name="dataFile" value="testCases.xlsx" />
+ 	 <parameter name="dataSheet" value="testData"/>
+ 	 <classes>
+	 	<class name="com.scripts.RegisterScenarios">
+	 		<methods>
+					<include name="basicSuccessFlow"></include>
+			</methods>
+		</class>
+	 </classes>
+ </test>
+
+</suite>
