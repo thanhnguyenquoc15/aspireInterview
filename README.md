@@ -1,5 +1,12 @@
 # aspireInterview
 This is a selenium webdriver automation framework
+Use Page Object Model design pattern to create test cases.
+====
+My main codes are under
+\src\main\java\com\scripts
+\src\main\java\com\frame
+\src\main\java\com\lib
+These will help to recognize my coding skills
 ====
 to run this project
 1. Install Eclipse IDE
