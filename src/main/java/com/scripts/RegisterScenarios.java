@@ -121,10 +121,30 @@ public class RegisterScenarios extends HelperClass{
 		
 		log.info("Test case Start");
 		log.info("---------------------------------------------------------------------");
-		log.info("Login ");
 //		try {
-
+		log.info("Login with Email");
 		RegisterPageObj.loginWithEmail(emailAddress, testData.get("Error message").toString());
+		log.info("Continue with undone Information from previous register");
+		log.info("Start Register Personal Details for Account");
+		RegisterPageObj.registerPersonalDetails(personalName, 
+												testData.get("Nationality").toString(), 
+												phoneNumber, 
+												emailAddress, 
+												testData.get("Date Of Birth").toString(), 
+												testData.get("Gender").toString(), 
+												testData.get("Register Purpose").toString(), 
+												testData.get("Personal Error Message").toString());
+		
+		log.info("Start Register Business Details for Account");
+		RegisterPageObj.registerBusinessDetails(businessName, 
+												testData.get("Registration Type").toString(),
+												testData.get("UEN").toString(),
+												testData.get("Business Role").toString(),
+												testData.get("Business Country").toString(), 
+												testData.get("Industry").toString(),  
+												testData.get("Sub Industry").toString(), 
+												testData.get("Business Error Message").toString());
+		
 		log.info("Test case End");
 		log.info("---------------------------------------------------------------------");
 		log.info("Start Clean Up");
@@ -152,15 +172,37 @@ public class RegisterScenarios extends HelperClass{
 //		String phoneNumber = testData.get("Phone Number").toString();
 		String phoneNumber = funcObj.randomPhoneNumber();
 		//generate random number and email to run demo test
-
+		String randStr = funcObj.randomString();
+		String emailAddress = randStr + testData.get("Email Address").toString();
+		String businessName = testData.get("Business Name").toString();
 		
 		log.info("Test case Start");
 		log.info("---------------------------------------------------------------------");
-		log.info("start register");
 //		try {
-			
-		RegisterPageObj.loginWithPhone(country, phoneNumber, testData.get("Error message").toString());
 		
+			
+		log.info("Login with Phone");
+		RegisterPageObj.loginWithPhone(country, phoneNumber, testData.get("Error message").toString());
+		log.info("Start Register Personal Details for Account");
+		log.info("Continue with undone Information from previous register");
+		RegisterPageObj.registerPersonalDetails(personalName, 
+												testData.get("Nationality").toString(), 
+												phoneNumber, 
+												emailAddress, 
+												testData.get("Date Of Birth").toString(), 
+												testData.get("Gender").toString(), 
+												testData.get("Register Purpose").toString(), 
+												testData.get("Personal Error Message").toString());
+		
+		log.info("Start Register Business Details for Account");
+		RegisterPageObj.registerBusinessDetails(businessName, 
+												testData.get("Registration Type").toString(),
+												testData.get("UEN").toString(),
+												testData.get("Business Role").toString(),
+												testData.get("Business Country").toString(), 
+												testData.get("Industry").toString(),  
+												testData.get("Sub Industry").toString(), 
+												testData.get("Business Error Message").toString());
 		log.info("Test case End");
 		log.info("---------------------------------------------------------------------");
 		log.info("Start Clean Up");
