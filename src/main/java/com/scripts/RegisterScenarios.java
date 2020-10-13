@@ -89,6 +89,7 @@ public class RegisterScenarios extends HelperClass{
 		
 		log.info("Test case End");
 		log.info("---------------------------------------------------------------------");
+		log.info("Start Clean Up");
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		} finally {

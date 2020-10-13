@@ -15,6 +15,31 @@
 		</classes>
 	</test>
 <!-- pending
+
+	<test name="Login registered account continue provide information">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Login registered account to verify account is Under reviewed">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
 	<test name="Register account unsuccessfull with invalid phoneNumber">
 		<parameter name="dataFile" value="testCases.xlsx" />
 		<parameter name="dataSheet" value="testData" />
