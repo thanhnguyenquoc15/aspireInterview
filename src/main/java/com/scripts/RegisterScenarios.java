@@ -179,8 +179,7 @@ public class RegisterScenarios extends HelperClass{
 		log.info("Test case Start");
 		log.info("---------------------------------------------------------------------");
 //		try {
-		
-			
+
 		log.info("Login with Phone");
 		RegisterPageObj.loginWithPhone(country, phoneNumber, testData.get("Error message").toString());
 		log.info("Start Register Personal Details for Account");
