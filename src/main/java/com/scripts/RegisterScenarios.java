@@ -54,7 +54,6 @@ public class RegisterScenarios extends HelperClass{
 		String referral = testData.get("Referral").toString();
 		String businessName = testData.get("Business Name").toString();
 		
-		
 		log.info("Test case Start");
 		log.info("---------------------------------------------------------------------");
 		log.info("start register");
@@ -100,9 +99,81 @@ public class RegisterScenarios extends HelperClass{
 //			//other system clean up	
 //			
 //		}
+	}
+	
+	@Test
+	(dataProvider = "dataMap", dataProviderClass = ReadData.class)
+	public void verifyEmailErrorMessage(Hashtable testData) throws Exception,
+    													  ParseException,
+    													  IOException 
+	{
+		log.info("Test Data is: "+ testData);
+		String personalName = testData.get("Personal Name").toString();
+		String country = testData.get("Country").toString();
+//		String phoneNumber = testData.get("Phone Number").toString();
+		String phoneNumber = funcObj.randomPhoneNumber();
+		//generate random number and email to run demo test
+		String randStr = funcObj.randomString();
+		String emailAddress = randStr + testData.get("Email Address").toString();
+//		input Referral should like this format "ReferralType|REFERCODE" even with blank details "Referral| "
+		String referral = testData.get("Referral").toString();
+		String businessName = testData.get("Business Name").toString();
 		
+		log.info("Test case Start");
+		log.info("---------------------------------------------------------------------");
+		log.info("Login ");
+//		try {
+
+		RegisterPageObj.loginWithEmail(emailAddress, testData.get("Error message").toString());
+		log.info("Test case End");
+		log.info("---------------------------------------------------------------------");
+		log.info("Start Clean Up");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (testData.get("CleanUp").equals("yes")) {
+//				log.info("Clean Up Register Accout in Database");
+//				//code here
+//			}
+//			//other system clean up	
+//			
+//		}
+	}
+	
+	@Test
+	(dataProvider = "dataMap", dataProviderClass = ReadData.class)
+	public void verifyPhoneErrorMessage(Hashtable testData) throws Exception,
+    													  ParseException,
+    													  IOException 
+	{
+		log.info("Test Data is: "+ testData);
+		String personalName = testData.get("Personal Name").toString();
+		String country = testData.get("Country").toString();
+//		String phoneNumber = testData.get("Phone Number").toString();
+		String phoneNumber = funcObj.randomPhoneNumber();
+		//generate random number and email to run demo test
+
 		
+		log.info("Test case Start");
+		log.info("---------------------------------------------------------------------");
+		log.info("start register");
+//		try {
+			
+		RegisterPageObj.loginWithPhone(country, phoneNumber, testData.get("Error message").toString());
 		
+		log.info("Test case End");
+		log.info("---------------------------------------------------------------------");
+		log.info("Start Clean Up");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (testData.get("CleanUp").equals("yes")) {
+//				log.info("Clean Up Register Accout in Database");
+//				//code here
+//			}
+//			//other system clean up	
+//			
+//		}
 	}
 	
 	
