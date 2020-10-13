@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
+import com.frame.CommonFunction;
 import com.frame.RegisterPage;
 import com.lib.ReadData;
 
@@ -15,12 +16,18 @@ public class RegisterScenarios extends HelperClass{
 
 	protected RegisterPage RegisterPageObj;
 	
+	protected Logger log = Logger.getLogger(this.getClass().getName());
+	
+	protected CommonFunction funcObj = new CommonFunction();
+	
+	
+	
 	@Override
 	public void performBeforeMethodOperation() {
 		// TODO Auto-generated method stub
 		RegisterPageObj = PageFactory.initElements(driver, RegisterPage.class);
 		
-		Logger log = Logger.getLogger(this.getClass().getName());
+		
 	}
 
 	@Override
@@ -39,25 +46,10 @@ public class RegisterScenarios extends HelperClass{
 		String personalName = testData.get("Personal Name").toString();
 		String country = testData.get("Country").toString();
 //		String phoneNumber = testData.get("Phone Number").toString();
-		
-		
-		int min = 100000000;
-		int max = 999999999;
-		int random_int = (int)(Math.random() * (max - min + 1) + min);
-		String phoneNumber = String.valueOf(random_int);
-		 min = 0;
-		 max = 10000;
-		 random_int = (int)(Math.random() * (max - min + 1) + min);
-		String randomnumber = String.valueOf(random_int);
-		String abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		min = 0;
-		max = abc.length();
-//		log.info("Random value in double from "+min+" to "+max+ ":");
-		random_int = (int)(Math.random() * (max - min + 1) + min);		
-		char letter = abc.charAt(random_int);
-		
-		
-		String emailAddress = randomnumber + testData.get("Email Address").toString() + letter;
+		String phoneNumber = funcObj.randomPhoneNumber();
+		//generate random number and email to run demo test
+		String randStr = funcObj.randomString();
+		String emailAddress = randStr + testData.get("Email Address").toString();
 //		input Referral should like this format "ReferralType|REFERCODE" even with blank details "Referral| "
 		String referral = testData.get("Referral").toString();
 		String businessName = testData.get("Business Name").toString();

@@ -142,4 +142,52 @@ public class CommonFunction {
 
 	
 	}
+	
+
+	
+	/**
+	 * This method generate simulated phone.
+	 *
+	 * @param secs time specified in seconds
+	 * @return  in String .
+	 *
+	 */
+	public String randomPhoneNumber()
+	{
+		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+//		do {
+		int min = 100000000;
+		int max = 999999999;
+		int random_int = (int)(Math.random() * (max - min + 1) + min);
+		String phoneNumber = String.valueOf(random_int);
+		return phoneNumber;
+	}
+	
+	/**
+	 * This method generate a random string.
+	 *
+	 * @param secs time specified in seconds
+	 * @return  in String .
+	 *
+	 */
+	public String randomString()
+	{
+		
+		int min = 0;
+		int max = 10000;
+		int random_int = (int)(Math.random() * (max - min + 1) + min);
+		String randomnumber = String.valueOf(random_int);
+		String abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		min = 0;
+		max = abc.length();
+//		log.info("Random value in double from "+min+" to "+max+ ":");
+		random_int = (int)(Math.random() * (max - min + 1) + min);		
+		char letter = abc.charAt(random_int);
+		String result = randomnumber + letter;
+		return result;
+	}
+	
+	
+	
+	
 }

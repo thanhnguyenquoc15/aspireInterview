@@ -331,22 +331,28 @@ public class RegisterPage {
 		driver.findElement(By.xpath("//div[contains(text(), '" + registerPurpose + "')]")).click();
 		funcObj.wait(1);
 		this.submitBtn.click();
-//		log.info("Fill in OTP and click Verify");
-//		this.getNfillOTP();
-//		driver.findElement(By.xpath("//span[@class='block' and contains(text(),'Verify')]")).click();
-		funcObj.wait(2);
+		//some time verify Emails OTP display here, sometime not
+		try {
+			log.info("Fill in OTP and click Verify");
+			this.getNfillOTP();
+			driver.findElement(By.xpath("//span[@class='block' and contains(text(),'Verify')]")).click();
+			funcObj.wait(2);
 
-//		try {
-//			driver.findElement(By.xpath("//*[contains(text(),'Hurray!')]"));
-//			driver.findElement(By.xpath("//*[contains(text()," + "'You have successfully verified your email.']"));
-//			Assert.assertEquals(actual, expected, message);
-//		} catch (ElementNotVisibleException e) {
-//		} catch (Exception e) {
-//			Assert.assertTrue(false, "some error happen there is no verification Page");
-//		}
+			try {
+				driver.findElement(By.xpath("//*[contains(text(),'Hurray!')]"));
+				driver.findElement(By.xpath("//*[contains(text()," + "'You have successfully verified your email.']"));
+//				Assert.assertEquals(actual, expected, message);
+			} catch (ElementNotVisibleException e) {
+			} catch (Exception e) {
+				Assert.assertTrue(false, "some error happen there is no verification Page");
+			}
+			this.continueBtn.click();
 
-		this.continueBtn.click();
+		} catch (Exception e) {
+			log.info("There is no Email OTP display");
+		}
 
+		
 	}
 
 	/**
@@ -514,7 +520,7 @@ public class RegisterPage {
 	/**
 	 * description: pending @param @throws
 	 */
-	public void verifyAccountIsReview() {
+	public void verifyAccountIsUnderReviewed() {
 		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
 
 	}
