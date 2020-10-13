@@ -98,6 +98,54 @@
 			</class>
 		</classes>
 	</test>
+	
+	<test name="Verify data under column Industry">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
  
+ 	 <test name="Verify data under column Sub Industry">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	 <test name="Verify data under column Your Role">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	 <test name="Verify data under column Your Business Type">
+		<parameter name="dataFile" value="testCases.xlsx" />
+		<parameter name="dataSheet" value="testData" />
+		<classes>
+			<class name="com.scripts.RegisterScenarios">
+				<methods>
+					<include name="basicSuccessFlow"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
  -->
 </suite>

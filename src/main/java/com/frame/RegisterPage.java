@@ -3,6 +3,7 @@ package com.frame;
 import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -150,6 +151,7 @@ public class RegisterPage {
 	public void registerAccount(String personalName, String country, String phoneNumber, String emailAddress,
 			String referral) {
 		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Actions action = new Actions(driver);
 		log.info("Select Country" + country + " for Phone Number");
 		selectCountry.click();
@@ -333,8 +335,8 @@ public class RegisterPage {
 		this.submitBtn.click();
 		//some time verify Emails OTP display here, sometime not
 		try {
-			log.info("Fill in OTP and click Verify");
 			this.getNfillOTP();
+			log.info("Fill in OTP and click Verify");
 			driver.findElement(By.xpath("//span[@class='block' and contains(text(),'Verify')]")).click();
 			funcObj.wait(2);
 
@@ -347,12 +349,9 @@ public class RegisterPage {
 				Assert.assertTrue(false, "some error happen there is no verification Page");
 			}
 			this.continueBtn.click();
-
 		} catch (Exception e) {
 			log.info("There is no Email OTP display");
 		}
-
-		
 	}
 
 	/**
@@ -403,7 +402,7 @@ public class RegisterPage {
 			Assert.assertTrue(verify.contains(registrationType), "Registration Type is not correct");
 		} else if (detailsInfoTable.get("Registration Type").toString().equals("false")) {
 			log.info("Input Registration Type into text box");
-			driver.findElement(By.xpath("//*[@label='Registration Type']//input")).sendKeys(registrationType);
+			driver.findElement(By.xpath("//*[@label='Registration Type']//input")).click();
 			driver.findElement(By.xpath("//div[contains(text(), '" + registrationType + "')]")).click();
 		}
 		log.info("--------------------------------------------------------------------------------------------");
@@ -450,7 +449,7 @@ public class RegisterPage {
 			Assert.assertTrue(verify.contains(role), "What is your role? is not correct");
 		} else if (detailsInfoTable.get("What is your role?").toString().equals("false")) {
 			log.info("Input What is your role? into text box");
-			driver.findElement(By.xpath("//*[@label='What is your role?']//input")).sendKeys(role);
+			driver.findElement(By.xpath("//*[@label='What is your role?']//input")).click();
 			driver.findElement(By.xpath("//div[contains(text(), '" + role + "')]")).click();
 		}
 		log.info("--------------------------------------------------------------------------------------------");
@@ -474,7 +473,7 @@ public class RegisterPage {
 			Assert.assertTrue(verify.contains(industry), "Industry is not correct");
 		} else if (detailsInfoTable.get("Industry").toString().equals("false")) {
 			log.info("Input Industry into text box");
-			driver.findElement(By.xpath("//*[@label='Industry']//input")).sendKeys(industry);
+			driver.findElement(By.xpath("//*[@label='Industry']//input")).click();
 			driver.findElement(By.xpath("//div[contains(text(), '" + industry + "')]")).click();
 		}
 		log.info("--------------------------------------------------------------------------------------------");
@@ -486,7 +485,7 @@ public class RegisterPage {
 			Assert.assertTrue(verify.contains(subIndustry), "Industry is not correct");
 		} else if (detailsInfoTable.get("Sub Industry").toString().equals("false")) {
 			log.info("Input Sub Industry into text box");
-			driver.findElement(By.xpath("//*[@label='Sub Industry']//input")).sendKeys(subIndustry);
+			driver.findElement(By.xpath("//*[@label='Sub Industry']//input")).click();
 			driver.findElement(By.xpath("//div[contains(text(), '" + subIndustry + "')]")).click();
 		}
 		log.info("--------------------------------------------------------------------------------------------");
@@ -521,6 +520,22 @@ public class RegisterPage {
 	 * description: pending @param @throws
 	 */
 	public void verifyAccountIsUnderReviewed() {
+		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+	}
+	
+	/**
+	 * description: pending @param @throws
+	 */
+	public void verifyThereAreEnoughIndustry() {
+		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
+
+	}
+	
+	/**
+	 * description: pending @param @throws
+	 */
+	public void verifyThereAreEnoughSubIndustry() {
 		log.debug("Entering into Method : " + Thread.currentThread().getStackTrace()[1].getMethodName());
 
 	}

@@ -179,8 +179,7 @@ public class CommonFunction {
 		String randomnumber = String.valueOf(random_int);
 		String abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		min = 0;
-		max = abc.length();
-//		log.info("Random value in double from "+min+" to "+max+ ":");
+		max = abc.length() - 1;
 		random_int = (int)(Math.random() * (max - min + 1) + min);		
 		char letter = abc.charAt(random_int);
 		String result = randomnumber + letter;
